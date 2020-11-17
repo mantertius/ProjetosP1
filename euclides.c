@@ -22,7 +22,7 @@ int algoritmo(int a, int d)
     {
      int q = d/a; //quociente1
      int r = d%a; //resto1
-     d = a*q + r;
+     d = a*q + r; 
         if (r == 0) // resto = 0
         {
             mdc = a;
@@ -91,5 +91,5 @@ int main()
 2 - Imprimir todos os MDC's juntos.
 
 
-
+a bla blu blé
 */
