@@ -1,11 +1,11 @@
 //https://thehuxley.com/problem/1290
 #include <stdio.h>
 
-static int count = 3;
+static int count = 0;
 static int n,t;
 int contador()
 {
-    if (count == t)
+    if (count == (t-1))
     {
         return 1;
     }
@@ -60,7 +60,14 @@ int escolhedor(int numero) //recebe n //recebe (n+3)
 int main()
 {
     scanf("%d%d",&n,&t); //escaneia os valores de n e t 
-    int resultado_final = escolhedor(n); // começa a recursão com n
-    printf("%d\n", resultado_final);
+    if (t < 0)
+    {
+        printf("%d\n", 0);
+    }
+    else
+    {
+        int resultado_final = escolhedor(n); // começa a recursão com n
+        printf("%d\n", resultado_final); 
+    }
     return 0;
 }
