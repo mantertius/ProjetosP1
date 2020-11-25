@@ -171,3 +171,4 @@ Backup of *.doc*
 /.vscode/
 
 # End of https://www.toptal.com/developers/gitignore/api/c,images,microsoftoffice,audio,adobe
+a.out
