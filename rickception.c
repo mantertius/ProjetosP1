@@ -60,11 +60,16 @@ int escolhedor(int numero) //recebe n //recebe (n+3)
 int main()
 {
     scanf("%d%d",&n,&t); //escaneia os valores de n e t 
-    if (t < 0)
+    if (t <= 0 && n < 0)
     {
-        printf("%d\n", 0);
+        printf("%d\n", n);
     }
-    else
+    else if( n < 0 && t > 0)
+    {
+        int resultado_final = escolhedor(n); // começa a recursão com n
+        printf("%d\n", resultado_final);
+    }
+    else 
     {
         int resultado_final = escolhedor(n); // começa a recursão com n
         printf("%d\n", resultado_final); 
