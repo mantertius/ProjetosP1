@@ -69,6 +69,10 @@ int main()
         int resultado_final = escolhedor(n); // começa a recursão com n
         printf("%d\n", resultado_final);
     }
+    else if (t == 0)
+    {
+        printf ("%d\n",n);
+    }
     else 
     {
         int resultado_final = escolhedor(n); // começa a recursão com n
@@ -76,3 +80,5 @@ int main()
     }
     return 0;
 }
+
+//finalizado

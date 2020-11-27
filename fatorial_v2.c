@@ -13,7 +13,7 @@ int fatorial (int x)
     }
     return resultado;
 }
-void scan()
+void scan() //vai scanear os números até que 
 {
     int x;
     scanf("%d",&x);
