@@ -6,8 +6,8 @@
 #define xicarasporcapsula 2
 #define professores 7
 
-
-static char cafe[5];
+//static 
+char cafe[7];
 static int capsulas = 0;
 static int xicaras = 0;
 int counter(int x)
@@ -17,8 +17,8 @@ int counter(int x)
     {
         return capsulas;
     }
-    //printf("----------- RODADA %d-------------\n", x);
-    //printf("BEGIN: capsulas...%d\n",capsulas);
+    printf("----------- RODADA %d-------------\n", x);
+    printf("BEGIN: capsulas...%d\n",capsulas);
     int n_caixas;
     char tipo_caixa;
     scanf("%d",&n_caixas);
@@ -39,9 +39,9 @@ int counter(int x)
     }
     //printf("----------- RODADA %d-------------\n", x);
     xicaras = xicarasporcapsula*capsulas/professores;
-   // printf("INPUT: n_caixas = {%d}, tipo_caixa = {%c}\n",n_caixas,tipo_caixa);
-   // printf("STORAGE: x = [%d],      cafe[%d] =   [%s]\n",x,x,&cafe[x]);
-  //  printf("END: n capsulas...%d\n\n",capsulas);
+    printf("INPUT: n_caixas = {%d}, tipo_caixa = {%c}\n",n_caixas,tipo_caixa);
+    printf("STORAGE: x = [%d],      cafe[%d] =   [%s]\n",x,x,&cafe[x]);
+    printf("END: n capsulas...%d\n\n",capsulas);
     counter(x+1);
 }
 

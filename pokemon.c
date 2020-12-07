@@ -20,8 +20,8 @@
 #define bez_v v2
 #define bez_d d2
 
-static int clodes_dmg[]=0;
-static int bezaliel_dmg[]=0;
+int clodes_dmg[]={0};
+int bezaliel_dmg[]={0};
 
 void dmg_comparator(int x, int y)
 {
@@ -34,12 +34,13 @@ void dmg_comparator(int x, int y)
 void battle(int clo_v, int bez_v, int clo_d, int bez_d,int counter)
 {
     int clo_d_new = clo_d + 50; //clodes usa habilidade especial
-    clodes_dmg[counter] = clo_d_new
+    clodes_dmg[counter] = clo_d_new;
     bez_d = clo_d_new;
-    bezaliel_dmg[counter] = 
+    bezaliel_dmg[counter] = clodes_dmg[counter];
     int clo_v_new = clo_v - bez_d;
     int bez_v_new = bez_v - clo_d_new;
-    
+
+    printf("%d\n",bez_v_new);
     printf("%d\n",clo_v_new);
     if (clo_d_new >= bez_v) //se o dmg de clodes for maior q a vida do bez, ganha
     {
@@ -60,7 +61,8 @@ void battle(int clo_v, int bez_v, int clo_d, int bez_d,int counter)
             return;
         }
     }
-    //a apartir daqui já estamos avaliando o proximo round
+
+    printf("clodes_dmg[%d] = %ls, bezaliel_dmg[%d] = %ls",counter, &clodes_dmg[counter],counter, &bezaliel_dmg[counter]);
 
     //int bez_v_new = bez_v - clo_d_new
     battle(clo_v_new,clo_d_new,bez_v,bez_d,counter+1);
