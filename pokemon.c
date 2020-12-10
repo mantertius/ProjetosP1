@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 //vida V 
 //dano inicial inteiro D.
 //A batalha termina quando um dos pokemons perde toda sua vida.
@@ -22,14 +23,6 @@
 
 int clodes_dmg[]={0};
 int bezaliel_dmg[]={0};
-
-void dmg_comparator(int x, int y)
-{
-    if (x>y)
-    {
-
-    }
-}
 
 void battle(int clo_v, int bez_v, int clo_d, int bez_d,int counter)
 {
@@ -62,7 +55,7 @@ void battle(int clo_v, int bez_v, int clo_d, int bez_d,int counter)
         }
     }
 
-    printf("clodes_dmg[%d] = %ls, bezaliel_dmg[%d] = %ls",counter, &clodes_dmg[counter],counter, &bezaliel_dmg[counter]);
+    printf("clodes_dmg[%d] = %d, bezaliel_dmg[%d] = %d",counter, clodes_dmg[counter],counter, bezaliel_dmg[counter]);
 
     //int bez_v_new = bez_v - clo_d_new
     battle(clo_v_new,clo_d_new,bez_v,bez_d,counter+1);
@@ -89,5 +82,6 @@ int main ()
     scan(n_battles);
     //printf("Clodes\n");
    // printf("Bezaliel\n");
+   return 0;
 
 }

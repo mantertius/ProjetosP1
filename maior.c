@@ -10,8 +10,9 @@ int maior(int x, int y, int z)
 
 int main()
 {
-    int n1,n2,n3;
+    long int n1,n2,n3;
+    printf("Digite três numeros:");
     scanf("%d%d%d", &n1,&n2,&n3);
-    printf("%d\n", maior(n1,n2,n3));
+    printf("O maior é: %d\n", maior(n1,n2,n3));
     return 0;
 }
