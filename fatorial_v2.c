@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int fatorial (int x)
+int fatorial (int x) //retorna o fatorial de um numero x
 {    
     int resultado;
     if (x==0)

@@ -1,4 +1,4 @@
-//https://thehuxley.com/problem/713 
+//https://thehuxley.com/problem/713 ALTERADO
 #include <stdio.h>
 static int numero_divisores = 0;
 void num_div (int z)

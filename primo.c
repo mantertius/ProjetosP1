@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <math.h>
  
-int verificaPRIMO(int x, int y) //verifica se um numero é primo
+int verificaPRIMO(int x, int y) //verifica se um numero x é primo, y=x-1
 {
     if (x%y == 0 && y==1)
     {
