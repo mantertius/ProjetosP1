@@ -1,101 +1,112 @@
+//https://thehuxley.com/problem/398
+
 #include <stdio.h>
-//TODO: multiplier_comparator
-int array[]={0};
-int brray[]={0};
+
+#define MAXN 10000
+int array[MAXN];
+int brray[MAXN];
 
 int encontra_mult(int x, int y, int y2, int counter, int tipo)
 {   
     int z = y;
     if ((y2 < x) || (y > y2))
     {
-        if (y == 0)
-        {
-            printf("INEXISTENTE\n");
-        }
-        printf("(%d) multiplos de %d\n",counter,x);
+       // printf("(%d) multiplos de %d\n",counter,x);
         return counter;  
     }
     else if (y%x == 0)
     {   
-        if(tipo == 1)
+        if(tipo == 2)
         {
             brray[counter] = z;
-            printf("b[%d] = %d\n",counter,z);
+          //  printf("barray[%d] = %d\n",counter,z);
         }
         else
         {
             array[counter] = z;
-            printf("a[%d] = %d\n",counter,z);
+           // printf("array[%d] = %d\n",counter,z);
         }
         //printf("multiplo de %d: %d\n",x,y);
-        encontra_mult(x,y+1,y2,counter+1,tipo);  
+        return encontra_mult(x,y+1,y2,counter+1,tipo);  
     }
     else if (y%x != 0)
     {
-        encontra_mult(x,y+1,y2,counter,tipo);
+        return encontra_mult(x,y+1,y2,counter,tipo);
     }
 }
 
-int comparador_de_array(int a[], int b[], int tamanho_a, int tamanho_b, int semelhantes, int index_atual, int index_secundario) //  b>a sempre
+int comparador_de_array(int menor[], int maior[], int tamanho_menor, int tamanho_maior, int semelhantes, int index_atual, int index_secundario) //  maior>menor sempre
 {
-    printf("começou o processo [%d]\n",index_secundario);
-    printf("------------a[%d]=%d e b[%d]=%d------------\n",index_atual,a[index_atual],index_secundario,b[index_secundario]);
-    if  (index_atual == tamanho_a) //index secundário vai até tamanho b e index_atual até tamanho_a
-    {   
-        printf("index_atual == tamanho_a (1)\n");
-        if(index_secundario == tamanho_b)
-        {
-            printf("index_secundario == tamanho_b\n");
-            return semelhantes; // aqui tá ok
-        }
-        else if (index_secundario < tamanho_b)
-        {
-            if (a[index_atual] == b[index_secundario])
-            {   
-                printf("a[index_atual] == b[index_secundario]\n");
-                printf("%d == %d\n",a[index_atual],b[index_secundario]);
+    //printf("começou o processo [%d]\n",index_secundario);
+    //printf("------------menor[%d]=%d e maior[%d]=%d------------\n",index_atual,menor[index_atual],index_secundario,maior[index_secundario]);
 
-                return comparador_de_array(a,b,tamanho_a,tamanho_b,semelhantes+1,index_atual+1,index_secundario+1);
+    if  (index_atual >= tamanho_menor-1) //index secundário vai até tamanho_maior e index_atual até tamanho_menor
+    {   
+        
+        if(index_secundario == tamanho_maior-1)
+        {
+            if (menor[index_atual] == maior[index_secundario])
+            {
+                int aux = semelhantes+1;
+                //printf("SEMENLANTES[%d]\n",aux);
+               // printf("FIM\n");
+                return aux;
+                
+            } // aqui tá ok
+            else
+            {
+                return semelhantes;
+            }
+            
+        }
+        else if (index_secundario < tamanho_maior-1)
+        {
+            if (menor[index_atual] == maior[index_secundario])
+            {   
+               
+                //printf("%d == %d\n",menor[index_atual],maior[index_secundario]);
+                //printf("SEMELHANTES: [%d]\n",semelhantes+1);
+
+                return comparador_de_array(menor,maior,tamanho_menor,tamanho_maior,semelhantes+1,index_atual+1,index_secundario+1);
             }
             else
             {
-                printf("a[index_atual] != b[index_secundario]\n");
-                return comparador_de_array(a,b,tamanho_a,tamanho_b,semelhantes,index_atual,index_secundario+1);
+                  //  printf("quase no fim\n");
+                return comparador_de_array(menor,maior,tamanho_menor,tamanho_maior,semelhantes,index_atual,index_secundario+1);
             }
         }
            
     }
-    else if (index_atual < tamanho_a) //a = 15, b = 17 → atual < 15 e sec == 17 
+    else if (index_atual < tamanho_menor-1) //menor = 15, maior = 17 → atual < 15 e sec == 17 
     {
-        if (index_secundario == tamanho_b)
+        //printf("elif\n");
+        if (index_secundario == tamanho_maior-1)
         {
-            printf("encaixa aqui\n");
-            if (a[index_atual] == b[index_secundario])
+            if (menor[index_atual] == maior[index_secundario])
             {
-                printf("depois aqui\n");
-                printf("a[index_atual] == b[index_secundario]\n");
-                printf("%d == %d\n",a[index_atual],b[index_secundario]);
-                return comparador_de_array(a,b,tamanho_a,tamanho_b,semelhantes+1,index_atual+1,0);
+                //printf("%d == %d\n",menor[index_atual],maior[index_secundario]);
+                //printf("SEMELHANTES: [%d]\n",semelhantes+1);
+
+                return comparador_de_array(menor,maior,tamanho_menor,tamanho_maior,semelhantes+1,index_atual+1,0);
             }
             else
             {
-                printf("ou aqui\n");
-                return comparador_de_array(a,b,tamanho_a,tamanho_b,semelhantes,index_atual+1,0);
+                return comparador_de_array(menor,maior,tamanho_menor,tamanho_maior,semelhantes,index_atual+1,0);
             }
         }
-        else//(index_secundario != tamanho b)
+        else//(index_secundario != tamanho maior)
         {
-            if (a[index_atual] == b[index_secundario])
+            if (menor[index_atual] == maior[index_secundario])
             {
-                printf("a[index_atual] == b[index_secundario]\n");
-                printf("%d == %d\n",a[index_atual],b[index_secundario]);
-                printf("1111\n");
-                return comparador_de_array(a,b,tamanho_a,tamanho_b,semelhantes+1,index_atual+1,index_secundario+1);
+                //printf("%d == %d\n",menor[index_atual],maior[index_secundario]);
+               // printf("SEMELHANTES: [%d]\n",semelhantes+1);
+
+
+                return comparador_de_array(menor,maior,tamanho_menor,tamanho_maior,semelhantes+1,index_atual+1,index_secundario+1);
             }
             else
-            {
-            printf("22222\n");
-            return comparador_de_array(a,b,tamanho_a,tamanho_b,semelhantes,index_atual,index_secundario+1);
+            {        
+            return comparador_de_array(menor,maior,tamanho_menor,tamanho_maior,semelhantes,index_atual,index_secundario+1);
             }
         }
         
@@ -132,10 +143,9 @@ int main()
 
     int m1 = encontra_mult(n1,n1,49,0,1); // numero de multiplos de n1
     int m2 = encontra_mult(n2,n2,49,0,2);// numero de multiplos de n2
-
     if(m1>m2)
     {
-        printf("indo comparar 1\n");
+       // printf("indo comparar 1\n");
         int result;
         result = comparador_de_array(brray,array,m2,m1,0,0,0);
         printf("%d\n",result);
@@ -143,7 +153,7 @@ int main()
     }
     else
     {
-        printf("indo comparar 2\n");
+        //printf("indo comparar 2\n");
        int result;
        result = comparador_de_array(array,brray,m1,m2,0,0,0);
        printf("%d\n",result);
