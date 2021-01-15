@@ -50,6 +50,7 @@ int compara_elemento(int a[],int b[],int n_elementos, int init,int i,int iguais)
         printf("{{{%d}}\n",iguais);
         return iguais;
     }
+    if ()
     if (a[init]==b[i])
     {
         printf("{{{%d}}\n",iguais);
