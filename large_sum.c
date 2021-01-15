@@ -61,7 +61,20 @@ int main()
     int tamanho2 = strlen(input2);
     printf("---------------TAMANHO 2  = [%d]\n",tamanho2);
     char_to_int(input2,n2,tamanho2,0);
-
+    
+    soma(n1,n2,res,0);
+    if (tamanho2 > tamanho)
+    {
+        imprimir(res,tamanho2,tamanho2+1);
+    }
+    else
+    {
+        imprimir(res,tamanho2,tamanho+1);
+    }
+  
+  
+    //fazer função para imprimir o resultado
+    //mas, como descobrir qual o tamanho de res[] sem os 0?
 
 
     return 0;

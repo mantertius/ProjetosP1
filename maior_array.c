@@ -12,11 +12,11 @@ void array_scan(int a[],int indice,int tamanho)
      
     array_scan(a,indice+1,tamanho);
 }
-void array_greatest(int a[], int indice, int tamanho, int maior,int indice_maior) //imprime o valor maior do array, com seu indice
+int array_greatest(int a[], int indice, int tamanho, int maior,int indice_maior) //imprime o valor maior do array, com seu indice
 {
     if(indice == tamanho)
     {
-        return;
+        return maior;
     }
     if(a[indice] > a[indice_maior])
     {
@@ -31,6 +31,7 @@ int main()
 {
     int array[10];
     array_scan(array,0,10);
-    array_greatest(array,0,10,-1,0);
+    int maior = array_greatest(array,0,10,0,0);
+    printf("%d\n", maior);
     
 }
