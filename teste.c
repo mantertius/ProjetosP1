@@ -1,51 +1,69 @@
 #include <stdio.h>
-int eh_primo(int x, int y) //verifica se um numero x é primo, y = x-1
+#include <string.h>
+int f(char string[],double V[], double numero, int i, int dias, int num)
 {
-    if (x%y == 0 && y==1)
+    if (i > dias+1)
     {
-        return 1;
+        return num;
     }
-    else if (x%y == 0 && y != 1)
+    while (scanf("%lf",&numero) != 1)
     {
-        return 0;
+        scanf("%s",string);
+        
+        int bruh = strlen(string);
+        //if(s)
+        for (int i = 0; i < bruh; i++)
+        {
+            printf("%c",string[i]);
+        }
+        num = num +1;
+        printf(" ");
+        
     }
-    else
-    {
-        return eh_primo(x,y-1);
-    }
+    printf("\n############\n");
+    V[i] = numero;
+    printf("{%.2lf}\n",numero);
+    numero = 0;
+    printf("NUMERO DE FRUTAS= [%d]\n", num);
+
+    return f(string,V,numero,i+1,dias, num);
+
+}
+int main()
+{
+    char string[100001];
+    double numero;
+    int num;
+    int dias;
+    double valor[100001];
+    scanf("%d",&dias);
+    f(string,valor,numero,0,dias,num);
     
-}
-int proximo_primo(int x, int y) //descobre o proximo primo
-{
-    if (eh_primo(x,x-1) == 1 )
+/*    
+    while (scanf("%lf",&numero) != 1)
     {
-        printf("okoko pp_1 [%d]\n",x);
-        return x;
+        scanf("%s",string);
+        
+        int bruh = strlen(string);
+        //if(s)
+        for (int i = 0; i < bruh; i++)
+        {
+            printf("\nstring[%d] = %c",i,string[i]);
+        }
+        num = num +1;
+        printf("\n");
+        printf("############\n");
     }
-    if (eh_primo(y,y-1) == 1)
-    {
-        printf("okoko pp_2 [%d]\n",y);
-        return y;
-    }
-    else
-    {
-        printf("okoko pp_3\n ");
-        return proximo_primo(x,y+1);
-    }
-}
-int main ()
-{
-    double x1;
-    scanf("%lf",&x1);
-    int x2;
-    x2 = x1;
-    //printf("%d\n", x2);
-    if(x1 == 1)
-    {
-        printf("ali");
-        printf("1!/1\n1.00");
-        return 0;
-    }
-    proximo_primo(x1,x1+1);
+    printf("{%.2lf}\n",numero);
+    printf("NUMERO DE FRUTAS= [%d]\n", num);
+    
+
+*/
+
+
+//   while(scanf("%lf",valor) == 1)
+
+
+
     return 0;
 }
