@@ -52,7 +52,8 @@ int scan_nn(char a[], int i)//scaneia as respostas dos alunos
     scanf("%d",&n);
     if(n==9999)
     {
-        return i;
+        //printf("[%d]",i-1);
+        return i;//numero de alunos+1
     }
     else
     {
@@ -98,7 +99,7 @@ double array_greatest(int a[], int indice, int tamanho, double maior,int indice_
         indice_maior = indice;
     }
     //printf("[%d] MAIOR:%.1lf, INDICE DO MAIOR:%d\n",indice, maior,indice_maior);
-    array_greatest(a,indice+1,tamanho,maior,indice_maior);
+    return array_greatest(a,indice+1,tamanho,maior,indice_maior);
 }
 
 int main()
@@ -119,21 +120,21 @@ int main()
     result_frequency(qtd,0.0);
 
     double maior = array_greatest(iguais,0,11,0,0);
-    if (maior == 0.0)
+
+   if (maior == 0.0)
     {
-        if(app == 0.0)
-        {
-            printf("%.1lf\n",maior);  
-        }
-        else
+        if(qtd == 1)
         {
             printf("%.1lf\n",notas[1]);
         }
-        
+        else
+        {
+           printf("%.1lf\n",maior);  
+        }  
     }
     else
     {
-              printf("%.1lf\n",maior);  
+        printf("%.1lf\n",maior);  
     }
     
     return 0;
