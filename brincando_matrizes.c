@@ -17,32 +17,25 @@ int delta_3(int m, int a[][m])
 int great(int m, int a[][m], int N)
 {
     int i,j;
-    int blau = -10001;
+    int maior = 0;
     for ( i = 0; i < 3; i++)
     {
         for (j = 0; j < 3; j++)
         {
-            int n1,n2;
-            n1 = a[i][j];
-            n2 = a[i][j+1];
-            if (n1 < n2)
+            if(i==0 && j == 0)
             {
-                printf("a[%d][%d]=[%d]\n",i,j+1, a[i][j+1]);
-                if (j+1 >= 3)
-                {
-                    printf("FIM?[%d]\n", a[i][j+1]);
-                    break;
-                }
-                
-                blau =  a[i][j+1];
-                printf("blau = %d\t",blau);
-
-            } 
-            printf("MAIOR: %d\n",blau);
+                maior = a[i][j];
+            }
+            if (maior<a[i][j])
+            {
+                maior = a[i][j];
+            }
+            
+          //printf("MAIOR[%d][%d]:%d\n",i,j,maior);  
         }
         
     }
-    return blau;
+    return maior;
     
 }
 int main()
@@ -57,9 +50,9 @@ int main()
             int n;
             scanf("%d",&n);
             matrix[i][j] = n;
-            printf("matrix[%d][%d] = %d\t",i,j,n);
+            //printf("matrix[%d][%d] = %d\t",i,j,n);
         }
-        printf("\n");
+        //printf("\n");
     }
     
     int sum = 0;
