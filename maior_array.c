@@ -24,7 +24,7 @@ int array_greatest(int a[], int indice, int tamanho, int maior,int indice_maior)
         indice_maior = indice;
     }
     printf("[%d] MAIOR:%d, INDICE DO MAIOR:%d\n",indice, maior,indice_maior);
-    array_greatest(a,indice+1,tamanho,maior,indice_maior);
+    return array_greatest(a,indice+1,tamanho,maior,indice_maior);
 }
 
 int main()
