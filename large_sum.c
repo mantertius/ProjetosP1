@@ -28,7 +28,7 @@ void sominha(int m, int a[], int b[], int r[])
         }
 
 
-        if (r[i]>10)
+        if (r[i]>=10)
         {
             passa = r[i]/10;
             int resto = r[i]%10;
